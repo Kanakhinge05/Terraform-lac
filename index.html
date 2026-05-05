@@ -1,9 +1,52 @@
 <html>
-    <head>
-        <title>Page Title</title>
-    </head>
-    <body>
-        <h1>My First Heading</h1>
-        <p>My first paragraph.</p>
-    </body>
+<head>
+    <title>Terraform-Infra</title>
+</head>
+<body>
+
+<h1>This is full flowchart of this project</h1>
+
+<pre>
+Terraform-Infra
+|
+|____ main.tf
+|     |_ output.tf
+|     |_ variables.tf
+|     |_ provider.tf
+|     |_ terraform.tfvars
+|     |_ index.html
+|     |_ user_data.sh
+|     |_ backend.tf
+|     |_ .gitignore
+|     |_ .terraform.lock.hcl
+|     |_ .terraform.tfstate
+|     |_ .terraform.tfstate.backup
+|
+|____ MODULES
+|     |_ EC2
+|     |   |_ main.tf
+|     |   |_ output.tf
+|     |   |_ variables.tf
+|     |
+|     |_ S3
+|     |   |_ main.tf
+|     |   |_ output.tf
+|     |   |_ variables.tf
+|     |
+|     |_ VPC
+|         |_ main.tf
+|         |_ output.tf
+|         |_ variables.tf
+|
+|____ .terraform
+      |_ modules
+      |   |_ modules.json
+      |
+      |_ providers/registry.terraform.io/hashicorp
+          |_ aws/6.25.0/windows_386
+          |_ local/2.8.0/windows_386
+          |_ tls/4.2.1/windows_386
+</pre>
+
+</body>
 </html>
