@@ -9,7 +9,3 @@ output "public_ip" {
 output "public_dns" {
   value = aws_instance.this.public_dns
 }
-
-output "website_url" {
-  value = "http://${aws_instance.this.public_ip}"  
-}

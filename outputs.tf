@@ -1,4 +1,4 @@
-output "id" {
+output "instance_id" {
     description = "The ID of the created EC2 instance"
     value = module.ec2.id
 }
@@ -16,4 +16,8 @@ output "public_dns" {
 output "vpc_id" {
     description = "The ID of the created VPC"
     value = module.vpc.vpc_id
+}
+
+output "website_url" {
+    value = "http://${module.ec2.public_ip}"
 }

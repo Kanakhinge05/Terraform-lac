@@ -1,21 +1,14 @@
 resource "aws_instance" "this" {
   ami           = var.ami_id
   instance_type = var.instance_type
+  key_name = var.key_name
 
   subnet_id = var.public_subnet_id
   vpc_security_group_ids = [aws_security_group.ec2_sg.id]
 
-  user_data = <<-EOF
-  #!/bin/bash
-  yum update -y
-  
-  amazon-linux-extras enable nginx
-  yum install -y nginx
-
-  echo "<h1>Hallo from TERRAFORM-INFRA</h2>" > /usr/share/nginx/html/index.html
-  systemctl enable nginx
-  systemctl start nginx
-  EOF
+  user_data = templatefile("${path.root}/user_data.sh", {
+    html_content = file("${path.root}/index.html")
+  })
 
   tags = {
     Name = var.instance_name

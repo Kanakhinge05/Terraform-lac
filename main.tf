@@ -1,3 +1,7 @@
+data "aws_key_pair" "existing" {
+  key_name = var.key_name
+}
+
 module "ec2" {
   source = "./MODULES/EC2"
 
@@ -6,7 +10,8 @@ module "ec2" {
   instance_type    = var.instance_type
   ssh_cidr         = var.ssh_cidr
   http_cidr        = var.http_cidr
-  key_name         = var.key_name
+
+  key_name         = data.aws_key_pair.existing.key_name
 
   vpc_id           = module.vpc.vpc_id
   public_subnet_id = module.vpc.public_subnet_id

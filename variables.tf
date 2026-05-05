@@ -30,7 +30,7 @@ variable "http_cidr" {
 }
 
 variable "key_name" {
-  description = "Name of the SSH key pair"
+  description = "Existing key pair to use for the EC2 instance"
   type        = string
 }
 
